@@ -108,6 +108,25 @@ $ docker rm <container id>
 $ docker container prune
 ----
 
+= Docker-Begriffe =
+
+* Docker Image
+  Vorlage unserer Applikation, die die Basis für den Container bildet
+
+* Docker Container
+  erzeugt aus den Docker-Images, führt die Applikation tatsächlich 
+  aus. Erzeugung mittels "docker run"
+
+* Docker Daemon
+  Hintergrunddienst, der sich um das Bauen, Ausführen und Verteilen
+  der Docker Container kümmert
+
+* Docker Client
+  Kommandozeilenwerkzeug zur Interaktion mit dem Docker Daemon
+
+* Docker Hub
+  Plattform für Docker Images
+
 + Linux Kernel Namespaces
 +  - Prozess-, Network-, Mount-, UTS-, IPC- und User Namespace
 +  - Linux Kernel Control Groups (cgroups)
