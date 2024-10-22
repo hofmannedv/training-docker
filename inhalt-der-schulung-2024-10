@@ -60,6 +60,53 @@ $ docker pull busybox
 $ docker images
 ----
 
+= Docker-Image mit Kommando ausführen =
+
+----
+$ docker run busybox echo "Hallo aus der Busybox"
+Hallo aus der Busybox
+$
+----
+
+= Laufende Docker-Container anzeigen =
+
+----
+$ docker ps
+CONTAINER ID    IMAGE    COMMAND ...
+$
+----
+
+= In der Vergangenheit gelaufene Container anzeigen
+
+----
+$ docker ps -a
+CONTAINER ID    IMAGE    COMMAND ...
+$
+----
+
+* Status: Exited (Beendet)
+
+= Shell im Container ausführen =
+
+----
+$ docker run -it busybox sh
+----
+
+* Parameter "it" fügt interaktives Tty an den Container an
+
+= Docker-Container wieder aufräumen =
+
+* Container durch ID benennen
+
+----
+$ docker rm <container id>
+----
+
+* alle Container entsorgen
+
+----
+$ docker container prune
+----
 
 + Linux Kernel Namespaces
 +  - Prozess-, Network-, Mount-, UTS-, IPC- und User Namespace
