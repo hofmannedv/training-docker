@@ -35,9 +35,36 @@
   pro Container
 * Vergabe von Ressourcen (RAM, CPU-Power) an Container
 
+= Docker-Begriffe =
+
+* Docker Image
+  Vorlage unserer Applikation, die die Basis für den Container bildet
+
+  Base Image:     Image ohne "Eltern"
+  Child Image:    Image, welches auf einem Base Image aufbaut
+  Official Image: Base Image, welches eine Organisation bereitstellt
+  User Image:     durch Benutzer bereitgestellte Images
+
+* Docker Container
+  erzeugt aus den Docker-Images, führt die Applikation tatsächlich 
+  aus. Erzeugung mittels "docker run"
+
+* Docker Daemon
+  Hintergrunddienst, der sich um das Bauen, Ausführen und Verteilen
+  der Docker Container kümmert
+
+* Docker Client
+  Kommandozeilenwerkzeug zur Interaktion mit dem Docker Daemon
+
+* Docker Hub
+  Plattform für Docker Images
+
 = Docker installieren =
 
-ToDo
+* Debian-Pakete
+  docker.io:      Docker-Umgebung
+  docker-compose: Docker-Entwicklungsumgebung
+  docker-clean:   Skript zum Bereinigen des Docker Daemons
 
 = Dockerinstallation testen =
 
@@ -93,6 +120,12 @@ $ docker run -it busybox sh
 ----
 
 * Parameter "it" fügt interaktives Tty an den Container an
+* erlaubt Ausführung beliebiger Kommandos
+* verlassen des Containers mit exit
+* beschädigte Container sind unproblematisch: Docker setzt
+  Container neu auf
+* weitere Optionen:
+  docker run --help
 
 = Docker-Container wieder aufräumen =
 
@@ -102,30 +135,81 @@ $ docker run -it busybox sh
 $ docker rm <container id>
 ----
 
+* Container nach Beendigung entsorgen
+
+----
+$ docker run --rm <container>
+----
+
+* alle Container entsorgen, die beendet wurden:
+
+----
+$ docker rm $(docker ps -aqf status=exited)
+----
+
 * alle Container entsorgen
 
 ----
 $ docker container prune
 ----
 
-= Docker-Begriffe =
+* nicht mehr benötigte Docker Images entfernen
 
-* Docker Image
-  Vorlage unserer Applikation, die die Basis für den Container bildet
+----
+$ docker rmi 
+----
 
-* Docker Container
-  erzeugt aus den Docker-Images, führt die Applikation tatsächlich 
-  aus. Erzeugung mittels "docker run"
+= Fremdes Docker-Image mit Nginx-Webserver benutzen = 
 
-* Docker Daemon
-  Hintergrunddienst, der sich um das Bauen, Ausführen und Verteilen
-  der Docker Container kümmert
+----
+$ docker run -d -P --name static-site prakhar1989/static-site
+----
 
-* Docker Client
-  Kommandozeilenwerkzeug zur Interaktion mit dem Docker Daemon
+* Aufrufparameter:
+  -d:     Terminal zurückstellen (detach)
+  -P:     alle Ports des Images auf zufällige Ports rausleiten
+  --name: Namen an das Docker-Image vergeben
 
-* Docker Hub
-  Plattform für Docker Images
+* ausgeben lassen, auf welche Ports das umgeleitet wurde
+
+----
+$ docker port static-site
+80/tcp -> 0.0.0.0:12345
+443/tcp -> 0.0.0.0:34567
+----
+
+* Webseite ansurfen, die über den Container bereitgestellt wird
+
+----
+http://localhost:12345
+----
+
+* Aufruf mit Wunschport
+
+----
+$ docker run -p 8888:80 --name static-site prakhar1989/static-site
+----
+
+* detached Container wieder stoppen
+
+----
+$ docker stop static-site
+----
+
+= Verfügbare, lokale Docker-Images auflisten =
+
+----
+$ docker images
+----
+
+= Online verfügbare Docker-Images anzeigen =
+
+----
+$ docker search
+----
+
+= Eigenes Docker-Image erzeugen =
+
 
 + Linux Kernel Namespaces
 +  - Prozess-, Network-, Mount-, UTS-, IPC- und User Namespace
@@ -133,7 +217,6 @@ $ docker container prune
 
 + Grundlagen Docker Container
 + Docker Architektur (Registry, Layer, Images, Container, Repository,...) 
-+ Docker Installation auf CentOS, SLES, Debian
 
 + Dockerfile
 - Docker-APIs (Registry, Hub, Remote)  
