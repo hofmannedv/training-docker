@@ -1,0 +1,47 @@
+
+Virtualisierung mit Docker
+
+Kursinhalt:
+
++ Host Problematik
++ Grundlagen Virtualisierung
++ Grundlagen Applikationscontainer
++ Linux Kernel Namespaces
++  - Prozess-, Network-, Mount-, UTS-, IPC- und User Namespace
++  - Linux Kernel Control Groups (cgroups)
+
++ Grundlagen Docker Container
++ Docker Architektur (Registry, Layer, Images, Container, Repository,...) 
++ Docker Installation auf CentOS, SLES, Debian
+
++ Dockerfile
+- Docker-APIs (Registry, Hub, Remote)  
++ Docker Daemon Einstellungen
++ Docker Befehle
++ Docker Hub
++ Starten eines Docker Containers
++ Verwalten der Docker Umgebung
++ Docker Container Verwaltung (starten, stoppen, restart, löschen)
++ Arbeiten mit Docker Images (Prozesse, Ports, Netzwerkeinstellungen,...)
++ Benutzen von Repositories (public und privat)
+
++ Einbinden von Daten Volumes
++ Datenaustausch zwischen Host und Container
++ Datenaustausch zwischen Container und Container
++ Vereinfachung als Shell-Skript oder YAML-Datei mit dem Docker Composer
+
++ Container Überwachung (Monitoring, Automatischer Restart, ...)
++ Container-Absicherung
+
++ Praktische Beispiele mit unterschiedlichen Containerinhalten und Betriebssystemen
++ Bauen eigener Docker Images
++ docker commit/push/pull Dockerfile
+
++ Arbeiten mit dem Build Cache
+
++ Backup und Restore von Images und Containern
++ Docker Ressourcen-Kontrollen
++ Implementieren von Stress Test Programmen
++ Limitieren von Ressourcen: CPU Share, CPU Pinning, Memory, SWAP, Block IO
++ Container Runtime Privilegien (Kernel Capabilities, Device Access, ...)
++ Tipps und Tricks

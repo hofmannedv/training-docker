@@ -1,0 +1,102 @@
+
+= Virtualisierung mit Docker =
+
+= Kursinhalt (gemäß Wunschliste) =
+
+- Docker-Images (Apache, PHP, MYSQL, Tomcat) erstellen und konfigurieren
+- Docker Volumes verwenden
+- Supervisord für die Verwendung von Services in einem Container
+- Mehrere Services (LAMP Tomcat) in einem Container realisieren
+- Mehrere Services (jeweils ein Container pro Service) über Docker-Compose realisieren
+- Docker-compose Datei erstellen und verwenden
+- .env Dateien verwenden
+- Umgang mit Docker-Secrets (private Keys, Passwörtern)
+- Wichtige Docker CLI Befehle für den Betrieb und Fehlersuche in Docker-Containern
+
+= Containertechnologien =
+
+* chroot
+* KVM
+* Emulatoren
+* Images
+* Virtuelle Maschinen (VirtualBox, VMWare)
+* schlanke Container / Applikationscontainer (Docker, Podman)
+
+= Varianten zur Bereitstellung von Diensten =
+
+* alle Services auf einen Host (keine Abschirmung)
+* dedizierter Host mit 1 Service pro Host (hostbasierte Abschirmung)
+* Server mit VMs mit 1 Dienst pro VM (VM-basierte Abschirmung)
+* Server mit Applikationscontainern (containerbasierte Abschirmung)
+
+= Grundlagen Applikationscontainer =
+
+* Zerlegung in (möglichst eine) Applikation oder logische Dienstgruppe
+  pro Container
+* Vergabe von Ressourcen (RAM, CPU-Power) an Container
+
+= Docker installieren =
+
+ToDo
+
+= Dockerinstallation testen =
+
+* kleines Docker-Image hello-world von Docker Hub beziehen ... 
+* ... und ausführen
+
+----
+$ docker run hello-world
+----
+
+= Docker-Image nur beziehen
+
+----
+$ docker pull busybox
+----
+
+= Lokal verfügbare Docker-Images anzeigen =
+
+----
+$ docker images
+----
+
+
++ Linux Kernel Namespaces
++  - Prozess-, Network-, Mount-, UTS-, IPC- und User Namespace
++  - Linux Kernel Control Groups (cgroups)
+
++ Grundlagen Docker Container
++ Docker Architektur (Registry, Layer, Images, Container, Repository,...) 
++ Docker Installation auf CentOS, SLES, Debian
+
++ Dockerfile
+- Docker-APIs (Registry, Hub, Remote)  
++ Docker Daemon Einstellungen
++ Docker Befehle
++ Docker Hub
++ Starten eines Docker Containers
++ Verwalten der Docker Umgebung
++ Docker Container Verwaltung (starten, stoppen, restart, löschen)
++ Arbeiten mit Docker Images (Prozesse, Ports, Netzwerkeinstellungen,...)
++ Benutzen von Repositories (public und privat)
+
++ Einbinden von Daten Volumes
++ Datenaustausch zwischen Host und Container
++ Datenaustausch zwischen Container und Container
++ Vereinfachung als Shell-Skript oder YAML-Datei mit dem Docker Composer
+
++ Container Überwachung (Monitoring, Automatischer Restart, ...)
++ Container-Absicherung
+
++ Praktische Beispiele mit unterschiedlichen Containerinhalten und Betriebssystemen
++ Bauen eigener Docker Images
++ docker commit/push/pull Dockerfile
+
++ Arbeiten mit dem Build Cache
+
++ Backup und Restore von Images und Containern
++ Docker Ressourcen-Kontrollen
++ Implementieren von Stress Test Programmen
++ Limitieren von Ressourcen: CPU Share, CPU Pinning, Memory, SWAP, Block IO
++ Container Runtime Privilegien (Kernel Capabilities, Device Access, ...)
++ Tipps und Tricks
