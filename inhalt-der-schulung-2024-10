@@ -216,12 +216,33 @@ $ docker search
 * Apache Webserver mit fertigem Container
   bitnami/apache:2.4-debian-12
 
-* Dockerfile:
+* eigenes Dockerfile erzeugen:
 
   ----
   FROM debian:latest
   RUN apt-get update && apt-get install -y apache2
   EXPOSE 80
+  ----
+
+* Docker-Image daraus bauen (aus dem Projektverzeichnis heraus)
+
+  ----
+  $ docker build . -t webserver:1.0
+  ----
+
+  Parameter:
+  -t name-des-images:tag
+
+* Docker-Image prüfen
+
+  ----
+  $ docker images
+  ----
+
+* Docker-Image starten
+
+  ----
+  $ docker run -d -p 8000:80 webserver:1.0
   ----
 
 = Docker Volumes =
