@@ -37,6 +37,9 @@
 
 = Docker-Begriffe =
 
+* Docker File
+  Textdatei mit Anweisungen zur Erzeugung des Docker Images
+
 * Docker Image
   Vorlage unserer Applikation, die die Basis für den Container bildet
 
@@ -215,6 +218,13 @@ $ docker search
 
 * fertiger Container
   bitnami/apache:2.4-debian-12
+
+* Dockerfile:
+
+  ----
+  FROM debian:latest
+  RUN apt-get update && apt-get install -y apache2
+  ----
 
 = Docker Volumes =
 
