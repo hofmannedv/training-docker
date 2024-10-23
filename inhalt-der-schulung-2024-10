@@ -213,10 +213,7 @@ $ docker search
 
 = Eigenes Docker-Image erzeugen =
 
-* Apache Webserver
-  https://www.tecmint.com/install-apache-web-server-in-a-docker-container/
-
-* fertiger Container
+* Apache Webserver mit fertigem Container
   bitnami/apache:2.4-debian-12
 
 * Dockerfile:
@@ -232,8 +229,10 @@ $ docker search
 * Docker Volumes – Guide with Examples
   https://spacelift.io/blog/docker-volumes
 
-
 * Apache Webserver mit externem Serververzeichnis
+
+  entlehnt von:
+  https://www.tecmint.com/install-apache-web-server-in-a-docker-container/
 
   ----
   $ docker run -dit --name webserver -p 8080:80 -v /home/user/webseite/:/usr/local/apache2/htdocs/ httpd:2.4
