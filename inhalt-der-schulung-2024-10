@@ -210,6 +210,20 @@ $ docker search
 
 = Eigenes Docker-Image erzeugen =
 
+* Apache
+  https://www.tecmint.com/install-apache-web-server-in-a-docker-container/
+
+* fertiger Container
+  bitnami/apache:2.4-debian-12
+
+= Docker Volumes =
+
+* Docker Volumes – Guide with Examples
+  https://spacelift.io/blog/docker-volumes
+
+
+------
+
 
 + Linux Kernel Namespaces
 +  - Prozess-, Network-, Mount-, UTS-, IPC- und User Namespace
