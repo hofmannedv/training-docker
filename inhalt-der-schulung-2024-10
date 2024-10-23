@@ -213,7 +213,7 @@ $ docker search
 
 = Eigenes Docker-Image erzeugen =
 
-* Apache
+* Apache Webserver
   https://www.tecmint.com/install-apache-web-server-in-a-docker-container/
 
 * fertiger Container
@@ -224,6 +224,7 @@ $ docker search
   ----
   FROM debian:latest
   RUN apt-get update && apt-get install -y apache2
+  EXPOSE 80
   ----
 
 = Docker Volumes =
@@ -231,6 +232,20 @@ $ docker search
 * Docker Volumes – Guide with Examples
   https://spacelift.io/blog/docker-volumes
 
+
+* Apache Webserver mit externem Serververzeichnis
+
+  ----
+  $ docker run -dit --name webserver -p 8080:80 -v /home/user/webseite/:/usr/local/apache2/htdocs/ httpd:2.4
+  ----
+
+  Aufrufparameter:
+  -d:     Terminal zurückstellen (detach)
+  -it:    interaktives Tty hinzufügen
+  -p:     interner Port 80 des Images auf externen Port 8080 rausleiten
+  --name: Namen an das Docker-Image vergeben
+  -v:     internes Verzeichnis /usr/local/apache2/htdocs/ auf /home/user/webseite/ abbilden
+  
 
 ------
 
