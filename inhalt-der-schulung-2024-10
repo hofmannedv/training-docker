@@ -262,17 +262,26 @@ $ docker search
   -p:     interner Port 80 des Images auf externen Port 8080 rausleiten
   --name: Namen an das Docker-Image vergeben
 
-  Webserver ist nun über Port 8000 erreichbar und zeigt die Default-Seite
-  des Apache an:
+* Erreichbarkeit des Dienstes prüfen
+
+  1) Docker-Image prüfen:
 
   ----
-  $ lynx http://localhost:8000
+  $ docker ps
   ----
 
-* Fehlersuche zur Erreichbarkeit mittels nmap
+  2) mit nmap prüfen, ob an Port 8000 ein Dienst lauscht
 
   ----
   $ nmap -p 8000 localhost
+  ----
+
+  3) Webserver ist nun über Port 8000 erreichbar und zeigt die 
+  Default-Seite des Apache an; Aufruf über Webbrowser, bspw. mit
+  lynx:
+
+  ----
+  $ lynx http://localhost:8000
   ----
 
 = Docker Volumes =
