@@ -306,6 +306,20 @@ $ docker search
   CMD ["apache2ctl", "-D", "FOREGROUND"]
   ----
 
+= Verzeichnisse in Host und Applikationscontainer gemeinsam benutzen =
+
+* Bind Mounts
+  - externes Verzeichnis, welches direkt im Container eingebunden wird
+  - von beiden Seiten nutzbares Verzeichnis (les- und schreibbar)
+  - erfolgt eine Änderung auf einer der beiden Seiten, wird es sofort
+    für beide sichtbar
+
+* Docker Volumes
+  - Verzeichnisse, die sich außerhalb des Containers befinden
+  - verwaltet von Docker
+  - üblicherweise: /var/lib/docker/volumes
+  - verfügbar für bspw. NFS oder Samba
+
 = Docker Volumes =
 
 * Docker Volumes – Guide with Examples
