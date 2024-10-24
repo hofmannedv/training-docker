@@ -284,6 +284,28 @@ $ docker search
   $ lynx http://localhost:8000
   ----
 
+= Apache-Webserver mit eigenen, vorher vorbereiteten Inhalten der Webseite =
+
+  entlehnt von:
+  https://hub.docker.com/_/httpd
+
+  ----
+  # Debian als Basisimage festlegen
+  FROM debian:latest
+
+  # Paketquellen aktualisieren und Apache-Webserver nachinstallieren
+  RUN apt-get update && apt-get install -y apache2
+
+  # Port 80 nach draussen freigeben
+  EXPOSE 80
+
+  # Inhalte aus lokalem Verzeichnis webseite in den Container kopieren
+  COPY ./webseite/ /usr/local/apache2/htdocs/
+
+  # Webserver starten
+  CMD ["apache2ctl", "-D", "FOREGROUND"]
+  ----
+
 = Docker Volumes =
 
 * Docker Volumes – Guide with Examples
