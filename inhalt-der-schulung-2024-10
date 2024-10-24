@@ -319,6 +319,8 @@ $ docker search
   - verwaltet von Docker
   - üblicherweise: /var/lib/docker/volumes
   - verfügbar für bspw. NFS oder Samba
+  - default: les- und schreibbar
+  - können von mehreren Instanzen gleichzeitig genutzt werden
 
 = Docker Volumes =
 
@@ -341,6 +343,15 @@ $ docker search
   --name: Namen an das Docker-Image vergeben
   -v:     internes Verzeichnis /usr/local/apache2/htdocs/ auf /home/user/webseite/ abbilden
   
+= Mehrere Docker-Images miteinander kombinieren (Docker Compose) =
+
+  Beispiel: PostgreSQL
+  https://geshan.com.np/blog/2021/12/docker-postgres/
+
+= Umgang mit Zugangsdaten =
+
+  siehe: How to use secrets in Docker Compose
+  https://docs.docker.com/compose/how-tos/use-secrets/
 
 ------
 
