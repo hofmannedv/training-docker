@@ -256,7 +256,18 @@ $ docker search
   $ docker run -dit -p 8000:80 --name webserver webserver:1.0
   ----
 
-  Webserver ist nun über Port 8000 erreichbar
+  Aufrufparameter:
+  -d:     Terminal zurückstellen (detach)
+  -it:    interaktives Tty hinzufügen
+  -p:     interner Port 80 des Images auf externen Port 8080 rausleiten
+  --name: Namen an das Docker-Image vergeben
+
+  Webserver ist nun über Port 8000 erreichbar und zeigt die Default-Seite
+  des Apache an:
+
+  ----
+  $ lynx http://localhost:8000
+  ----
 
 = Docker Volumes =
 
