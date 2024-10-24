@@ -269,6 +269,12 @@ $ docker search
   $ lynx http://localhost:8000
   ----
 
+* Fehlersuche zur Erreichbarkeit mittels nmap
+
+  ----
+  $ nmap -p 8000 localhost
+  ----
+
 = Docker Volumes =
 
 * Docker Volumes – Guide with Examples
