@@ -213,15 +213,26 @@ $ docker search
 
 = Eigenes Docker-Image erzeugen =
 
+* Referenz der Dockerfile-Schlüsselworte
+  https://docs.docker.com/reference/dockerfile/
+
 * Apache Webserver mit fertigem Container
   bitnami/apache:2.4-debian-12
 
 * eigenes Dockerfile erzeugen:
 
   ----
+  # Debian als Basisimage festlegen
   FROM debian:latest
+
+  # Paketquellen aktualisieren und Apache-Webserver nachinstallieren
   RUN apt-get update && apt-get install -y apache2
+
+  # Port 80 nach draussen freigeben
   EXPOSE 80
+
+  # Webserver starten
+  CMD ["apache2ctl", "-D", "FOREGROUND"]
   ----
 
 * Docker-Image daraus bauen (aus dem Projektverzeichnis heraus)
@@ -233,7 +244,7 @@ $ docker search
   Parameter:
   -t name-des-images:tag
 
-* Docker-Image prüfen
+* Docker-Images auflisten
 
   ----
   $ docker images
@@ -242,8 +253,10 @@ $ docker search
 * Docker-Image starten
 
   ----
-  $ docker run -d -p 8000:80 webserver:1.0
+  $ docker run -dit -p 8000:80 --name webserver webserver:1.0
   ----
+
+  Webserver ist nun über Port 8000 erreichbar
 
 = Docker Volumes =
 
