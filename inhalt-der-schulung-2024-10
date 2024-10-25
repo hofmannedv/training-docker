@@ -350,8 +350,38 @@ $ docker search
 
 = Umgang mit Zugangsdaten =
 
-  siehe: How to use secrets in Docker Compose
-  https://docs.docker.com/compose/how-tos/use-secrets/
+*  siehe: 
+
+   How to use secrets in Docker Compose
+   https://docs.docker.com/compose/how-tos/use-secrets/
+
+   Docker Secrets : Beginners Guide
+   https://medium.com/@younusraza909/docker-secrets-beginners-guide-73f0b60764aa
+
+* Docker-Instanz muss zunächst Teil einer Docker Swarm-Instanz sein
+
+  ----
+  $ docker swarm init
+  ---- 
+
+* Docker Secret namens zugangsdaten erzeugen
+
+  ----
+  $ echo "geheim" | docker secret create zugangsdaten -
+  dd568haahpi6jomkkj5kyl2gi
+  $
+  ----
+
+* Docker Secret anzeigen
+
+  ----
+  $ docker secret ls
+
+  ID                          NAME                CREATED             UPDATED
+  dd568haahpi6jomkkj5kyl2gi   my_secret           30 seconds ago       30 seconds ago
+
+  $
+  ----
 
 ------
 
