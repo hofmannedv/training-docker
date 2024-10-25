@@ -345,8 +345,29 @@ $ docker search
   
 = Mehrere Docker-Images miteinander kombinieren (Docker Compose) =
 
-  Beispiel: PostgreSQL
+* Beispiel 1: PostgreSQL
   https://geshan.com.np/blog/2021/12/docker-postgres/
+
+* Beispiel 2: Anwendung und Redis-Server
+  https://spacelift.io/blog/docker-compose
+
+  ----
+  services:
+    anwendung:
+      image: anwendung:latest
+      build:
+        context: .
+      ports:
+        - 8000:80
+    redis:
+      image: redis:6
+  ----
+
+  Aufruf (Starten der Container im Hintergrund: detached)
+
+  ----
+  $ docker compose up -d
+  ----
 
 = Umgang mit Zugangsdaten =
 
@@ -415,6 +436,21 @@ $ docker search
   ]
   $
   ----
+
+* Docker Secret in einem Compose-File benutzen
+
+  ----
+  version: '3.8'
+  services:
+    myapp:
+      image: myapp:latest
+      environment:
+        - DATABASE_PASSWORD_FILE=/run/secrets/zugangsdaten
+   secrets:
+      zugangsdaten:
+        file: ./zugangsdaten.datei
+  ----
+
 
 ------
 
