@@ -348,7 +348,7 @@ $ docker search
 * siehe:
   https://docs.docker.com/engine/containers/multi-service_container/
 
-* Wrapper-Skript
+* mit Wrapper-Skript
 
   ----
   #!/bin/bash
@@ -367,6 +367,29 @@ $ docker search
   exit $?
   ----
 
+  Angabe im Dockerfile:
+
+  ----
+  CMD ./wrapper-skript.sh
+  ---- 
+
+* mit Supervisor-Daemon
+
+  Supervisor: A Process Control System
+  http://supervisord.org/
+
+  Debian-Paket:
+  https://packages.debian.org/bookworm/supervisor
+
+  ----
+  FROM debian:latest
+  RUN apt-get update && apt-get install -y supervisor
+  RUN mkdir -p /var/log/supervisor
+  COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+  COPY service1 service1
+  COPY service2 service2
+  CMD ["/usr/bin/supervisord"]
+  ----
 
 = Mehrere Docker-Images miteinander kombinieren (Docker Compose) =
 
