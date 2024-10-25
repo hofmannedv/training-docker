@@ -343,6 +343,31 @@ $ docker search
   --name: Namen an das Docker-Image vergeben
   -v:     internes Verzeichnis /usr/local/apache2/htdocs/ auf /home/user/webseite/ abbilden
   
+= Mehrere Services pro Container =
+
+* siehe:
+  https://docs.docker.com/engine/containers/multi-service_container/
+
+* Wrapper-Skript
+
+  ----
+  #!/bin/bash
+
+  # erster Service
+  ./service1 &
+
+  # zweiter Service
+  ./service2 &
+
+  # warte darauf, dass alle Services beendet sind
+  wait -n
+
+  # Rückgabewert setzen
+  # hier: Status des ersten Prozesses
+  exit $?
+  ----
+
+
 = Mehrere Docker-Images miteinander kombinieren (Docker Compose) =
 
 * Beispiel 1: PostgreSQL
