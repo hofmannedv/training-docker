@@ -527,6 +527,15 @@ $ docker search
         file: ./zugangsdaten.datei
   ----
 
+= Docker Health Check =
+
+  siehe:
+  https://lumigo.io/container-monitoring/docker-health-check-a-practical-guide/
+
+  Dockerfile Linter
+  https://hadolint.github.io/hadolint/
+
+  Docker Compose Config
 
 ------
 
