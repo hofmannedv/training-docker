@@ -370,6 +370,7 @@ $ docker search
   Angabe im Dockerfile:
 
   ----
+  COPY wrapper-skript.sh ./wrapper-skript.sh
   CMD ./wrapper-skript.sh
   ---- 
 
@@ -403,8 +404,6 @@ $ docker search
   services:
     anwendung:
       image: anwendung:latest
-      build:
-        context: .
       ports:
         - 8000:80
     redis:
@@ -415,6 +414,35 @@ $ docker search
 
   ----
   $ docker compose up -d
+  ----
+
+* Docker Network Bridge
+
+  siehe:
+  Multi-container applications
+  https://docs.docker.com/get-started/docker-concepts/running-containers/multi-container-applications/
+
+  Wie man Docker Container innerhalb eines benutzerdefinierten Bridge Netzwerks 
+  kommunizieren lässt
+  https://evoila.com/de/blog/docker_container/?noredirect=de-DE-formal
+
+  - Netzwerk anlegen
+  
+  ----
+  $ docker network create beispielnetz
+  ----
+
+  - Images hinzufügen
+
+  ----
+  $ docker run -d --name webserver apache:1.0 --network beispielnetz
+  $ docker run -it --name client debian12:1.0 --network beispielnetz
+  ----
+
+  - Zugriff vom debian12 auf den Webserver
+
+  ----
+  $ lynx http://webserver
   ----
 
 = Umgang mit Zugangsdaten =
