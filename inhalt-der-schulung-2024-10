@@ -366,8 +366,16 @@ $ docker search
 
 * Docker Secret namens zugangsdaten erzeugen
 
+  über stdin
   ----
   $ echo "geheim" | docker secret create zugangsdaten -
+  dd568haahpi6jomkkj5kyl2gi
+  $
+  ----
+
+  aus einer Datei
+  ----
+  $ docker secret create zugangsdaten passwortdatei
   dd568haahpi6jomkkj5kyl2gi
   $
   ----
@@ -397,7 +405,7 @@ $ docker search
         "CreatedAt": "2017-03-24T08:15:09.735271783Z",
         "UpdatedAt": "2017-03-24T08:15:09.735271783Z",
         "Spec": {
-            "Name": "my_secret",
+            "Name": "zugangsdaten",
             "Labels": {
                 "env": "dev",
                 "rev": "20170324"
