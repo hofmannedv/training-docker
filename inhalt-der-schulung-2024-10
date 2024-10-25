@@ -383,6 +383,31 @@ $ docker search
   $
   ----
 
+* Docker Secret auslesen
+
+  ----
+  $ docker secret inspect zugangsdaten
+
+  [
+    {
+        "ID": "dd568haahpi6jomkkj5kyl2gi",
+        "Version": {
+            "Index": 17
+        },
+        "CreatedAt": "2017-03-24T08:15:09.735271783Z",
+        "UpdatedAt": "2017-03-24T08:15:09.735271783Z",
+        "Spec": {
+            "Name": "my_secret",
+            "Labels": {
+                "env": "dev",
+                "rev": "20170324"
+            }
+        }
+    }
+  ]
+  $
+  ----
+
 ------
 
 
